@@ -1,31 +1,31 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+function listFolderFiles($dir){
+    $ffs = scandir($dir);
+    $i = 0;
+    $list = array();
+    foreach ( $ffs as $ff ){
+        if ( $ff != '.' && $ff != '..' ){
+            if ( strlen($ff)>= 5 ) {
+                if ( substr($ff, -4) == '.php' ) {
+                    $list[] = $ff;
+//echo dirname($ff) . $ff . "<br/>";
+                    echo $dir.'/'.$ff.'<br/>';
+                }
+            }
+            if( is_dir($dir.'/'.$ff) )
+                listFolderFiles($dir.'/'.$ff);
+        }
+    }
+    return $list;
+}
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+$files = array();
+$files = listFolderFiles(dirname(__FILE__));
 
-	<div class="d-flex w-100 justify-content-between">
-		<div>1</div>
-		<div>2</div>
-		<div>3</div>
-		<div>4</div>
-		<div>5</div>
-	</div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js" ></script>
-    <script src="js/bootstrap.min.js" ></script>
-  </body>
-</html>
-</html>
+
+
+
+
+?>
