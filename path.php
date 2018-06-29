@@ -1,5 +1,4 @@
 <?php
-
 function listFolderFiles($dir){
     $ffs = scandir($dir);
     $i = 0;
@@ -22,10 +21,3 @@ function listFolderFiles($dir){
 
 $files = array();
 $files = listFolderFiles(dirname(__FILE__));
-
-
-
-
-
-
-?>
