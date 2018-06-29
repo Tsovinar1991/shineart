@@ -60,7 +60,7 @@ class Framework
         session_start();
 
 
-        //need fix path issues
+
 
 
     }
@@ -76,7 +76,7 @@ class Framework
         spl_autoload_register(array(__CLASS__, 'load'));
     }
 
-    private static function load($classname) //something wrong
+    private static function load($classname)
     {
         if (substr($classname, -10) == "Controller") {
             require_once CURR_CONTROLLER_PATH . "$classname.class.php";
