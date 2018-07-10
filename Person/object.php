@@ -4,7 +4,8 @@ require_once "person.php";
 
 
 $person = new Person("Someone", "Grigoryan", "26");
-echo $person->SetName("Tsovinar");
+$person->SetName("Tsovinar");
+$person->GetName();
 echo "<pre>";
 var_dump($person);
 echo "</pre>";
